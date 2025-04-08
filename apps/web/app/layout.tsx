@@ -1,4 +1,5 @@
-import { SidebarProvider } from "@repo/ui/components/ui/sidebar";
+import { AppSidebar } from "#components/app-sidebar";
+import { SidebarInset, SidebarProvider } from "@repo/ui/components/ui/sidebar";
 import "@repo/ui/globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -25,7 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <SidebarProvider>{children}</SidebarProvider>
+        <SidebarProvider>
+          <AppSidebar variant="inset" />
+          <SidebarInset>{children}</SidebarInset>
+        </SidebarProvider>
       </body>
     </html>
   );

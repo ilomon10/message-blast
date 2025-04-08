@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 
 import { NavDocuments } from "@repo/ui/components/nav-documents";
-import { NavMain } from "@repo/ui/components/nav-main";
+import { NavMain } from "#components/nav-main";
 import { NavSecondary } from "@repo/ui/components/nav-secondary";
 import { NavUser } from "@repo/ui/components/nav-user";
 import {
@@ -35,7 +35,7 @@ import {
 
 const data = {
   user: {
-    name: "shadcn",
+    name: "John Doe",
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
