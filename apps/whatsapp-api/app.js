@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import '@repo/load-env/config'
 import express from 'express'
 import nodeCleanup from 'node-cleanup'
 import routes from './routes.js'

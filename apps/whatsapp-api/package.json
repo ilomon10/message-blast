@@ -5,13 +5,14 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "dev": "node . --port 8000",
+    "dev": "node .",
     "start": "node ."
   },
   "engines": {
     "node": ">=18.16.0"
   },
   "dependencies": {
+    "@repo/load-env": "workspace:*",
     "@whiskeysockets/baileys": "^6.7.12",
     "axios": "^1.7.9",
     "cors": "^2.8.5",

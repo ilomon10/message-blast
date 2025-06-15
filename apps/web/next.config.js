@@ -1,6 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  transpilePackages: ["@repo/ui"],
-};
+export default (phase, { defaultConfig }) => {
+  /** @type {import('next').NextConfig} */
+  const nextConfig = {
+    transpilePackages: ["@repo/ui"],
+  };
 
-export default nextConfig;
+  if (phase === "phase-development-server") {
+    return nextConfig;
+  }
+
+  return nextConfig;
+};
