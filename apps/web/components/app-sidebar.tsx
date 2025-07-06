@@ -3,25 +3,20 @@
 import * as React from "react";
 import {
   ArrowUpCircleIcon,
-  BarChartIcon,
-  CameraIcon,
   ClipboardListIcon,
   DatabaseIcon,
-  FileCodeIcon,
   FileIcon,
-  FileTextIcon,
   FolderIcon,
   HelpCircleIcon,
   LayoutDashboardIcon,
   ListIcon,
+  MessageCircleIcon,
   SearchIcon,
   SettingsIcon,
   UsersIcon,
 } from "lucide-react";
 
-import { NavDocuments } from "@repo/ui/components/nav-documents";
 import { NavMain } from "#components/nav-main";
-import { NavSecondary } from "@repo/ui/components/nav-secondary";
 import { NavUser } from "@repo/ui/components/nav-user";
 import {
   Sidebar,
@@ -32,6 +27,71 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@repo/ui/components/ui/sidebar";
+import { NavMenu, NavMenuItemType } from "./nav-menu";
+
+const navMenu: NavMenuItemType[] = [
+  {
+    title: "Dashboard",
+    url: "/",
+    icon: LayoutDashboardIcon,
+  },
+  {
+    title: "Inbox",
+    url: "/inbox",
+    icon: MessageCircleIcon,
+  },
+  {
+    title: "Sessions",
+    url: "/sessions",
+    icon: ListIcon,
+  },
+  {
+    title: "Projects",
+    url: "#",
+    icon: FolderIcon,
+  },
+  {
+    title: "Documents",
+    section: true,
+  },
+  {
+    title: "Team",
+    url: "#",
+    icon: UsersIcon,
+  },
+  {
+    title: "Data Library",
+    url: "#",
+    icon: DatabaseIcon,
+  },
+  {
+    title: "Reports",
+    url: "#",
+    icon: ClipboardListIcon,
+  },
+  {
+    title: "Word Assistant",
+    url: "#",
+    icon: FileIcon,
+  },
+];
+const navSecondary: NavMenuItemType[] = [
+  {
+    title: "Settings",
+    url: "#",
+    icon: SettingsIcon,
+  },
+  {
+    title: "Get Help",
+    url: "#",
+    icon: HelpCircleIcon,
+  },
+  {
+    title: "Search",
+    url: "#",
+    icon: SearchIcon,
+  },
+];
 
 const data = {
   user: {
@@ -39,115 +99,6 @@ const data = {
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
-  navMain: [
-    {
-      title: "Dashboard",
-      url: "/",
-      icon: LayoutDashboardIcon,
-    },
-    {
-      title: "Sessions",
-      url: "/sessions",
-      icon: ListIcon,
-    },
-    {
-      title: "Analytics",
-      url: "#",
-      icon: BarChartIcon,
-    },
-    {
-      title: "Projects",
-      url: "#",
-      icon: FolderIcon,
-    },
-    {
-      title: "Team",
-      url: "#",
-      icon: UsersIcon,
-    },
-  ],
-  navClouds: [
-    {
-      title: "Capture",
-      icon: CameraIcon,
-      isActive: true,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Proposal",
-      icon: FileTextIcon,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Prompts",
-      icon: FileCodeIcon,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-  ],
-  navSecondary: [
-    {
-      title: "Settings",
-      url: "#",
-      icon: SettingsIcon,
-    },
-    {
-      title: "Get Help",
-      url: "#",
-      icon: HelpCircleIcon,
-    },
-    {
-      title: "Search",
-      url: "#",
-      icon: SearchIcon,
-    },
-  ],
-  documents: [
-    {
-      name: "Data Library",
-      url: "#",
-      icon: DatabaseIcon,
-    },
-    {
-      name: "Reports",
-      url: "#",
-      icon: ClipboardListIcon,
-    },
-    {
-      name: "Word Assistant",
-      url: "#",
-      icon: FileIcon,
-    },
-  ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -169,9 +120,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <NavMain />
+        <NavMenu items={navMenu} />
+        <NavMenu items={navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />

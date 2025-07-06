@@ -1,6 +1,6 @@
 "use client";
 
-import { MailIcon, PlusCircleIcon, type LucideIcon } from "lucide-react";
+import { MailIcon, PlusCircleIcon } from "lucide-react";
 
 import { Button } from "@repo/ui/components/ui/button";
 import {
@@ -10,19 +10,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@repo/ui/components/ui/sidebar";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 
-export function NavMain({
-  items,
-}: {
-  items: {
-    title: string;
-    url: string;
-    icon?: LucideIcon;
-  }[];
-}) {
-  const pathname = usePathname();
+export function NavMain() {
   return (
     <SidebarGroup>
       <SidebarGroupContent className="flex flex-col gap-2">
@@ -44,22 +33,6 @@ export function NavMain({
               <span className="sr-only">Inbox</span>
             </Button>
           </SidebarMenuItem>
-        </SidebarMenu>
-        <SidebarMenu>
-          {items.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton
-                tooltip={item.title}
-                asChild
-                isActive={pathname === item.url}
-              >
-                <Link href={item.url}>
-                  {item.icon && <item.icon />}
-                  <span>{item.title}</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          ))}
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>
