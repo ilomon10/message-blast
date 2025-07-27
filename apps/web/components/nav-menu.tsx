@@ -39,9 +39,11 @@ export function NavMenu({
       <SidebarGroupContent className="flex flex-col gap-2">
         <SidebarMenu>
           {items.map((item) => (
-            <SidebarMenuItem key={item.title}>
+            <SidebarMenuItem key={`${item.title}-${item.url}`}>
               {item.section === true ? (
-                <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
+                <SidebarGroupLabel className="mt-4">
+                  {item.title}
+                </SidebarGroupLabel>
               ) : (
                 <SidebarMenuButton
                   tooltip={item.title}

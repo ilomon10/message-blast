@@ -3,17 +3,15 @@
 import * as React from "react";
 import {
   ArrowUpCircleIcon,
-  ClipboardListIcon,
-  DatabaseIcon,
-  FileIcon,
-  FolderIcon,
+  FileCode2Icon,
   HelpCircleIcon,
+  KeyRoundIcon,
   LayoutDashboardIcon,
   ListIcon,
   MessageCircleIcon,
+  MoreHorizontalIcon,
   SearchIcon,
   SettingsIcon,
-  UsersIcon,
 } from "lucide-react";
 
 import { NavMain } from "#components/nav-main";
@@ -31,11 +29,6 @@ import { NavMenu, NavMenuItemType } from "./nav-menu";
 
 const navMenu: NavMenuItemType[] = [
   {
-    title: "Dashboard",
-    url: "/",
-    icon: LayoutDashboardIcon,
-  },
-  {
     title: "Inbox",
     url: "/inbox",
     icon: MessageCircleIcon,
@@ -46,33 +39,37 @@ const navMenu: NavMenuItemType[] = [
     icon: ListIcon,
   },
   {
-    title: "Projects",
-    url: "#",
-    icon: FolderIcon,
-  },
-  {
-    title: "Documents",
+    title: "Application",
     section: true,
   },
   {
-    title: "Team",
-    url: "#",
-    icon: UsersIcon,
+    title: "Dashboard",
+    url: "/",
+    icon: LayoutDashboardIcon,
   },
   {
-    title: "Data Library",
-    url: "#",
-    icon: DatabaseIcon,
+    title: "Token",
+    url: "/application-setting/sessions",
+    icon: KeyRoundIcon,
   },
   {
-    title: "Reports",
-    url: "#",
-    icon: ClipboardListIcon,
+    title: "Documentation",
+    section: true,
   },
   {
-    title: "Word Assistant",
-    url: "#",
-    icon: FileIcon,
+    title: "Sessions",
+    url: "/api/sessions",
+    icon: FileCode2Icon,
+  },
+  {
+    title: "Inbox",
+    url: "/api/inbox",
+    icon: FileCode2Icon,
+  },
+  {
+    title: "More",
+    url: "/api/",
+    icon: MoreHorizontalIcon,
   },
 ];
 const navSecondary: NavMenuItemType[] = [
